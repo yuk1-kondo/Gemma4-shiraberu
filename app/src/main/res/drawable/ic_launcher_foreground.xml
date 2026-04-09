@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- === TREASURE CHEST (DQ-style) === -->
+
+    <!-- Chest body -->
+    <path
+        android:fillColor="#8B4513"
+        android:pathData="M30,58 L78,58 L78,82 L30,82 Z" />
+
+    <!-- Body bottom gold band -->
+    <path
+        android:fillColor="#DAA520"
+        android:pathData="M30,78 L78,78 L78,82 L30,82 Z" />
+
+    <!-- Body top gold band -->
+    <path
+        android:fillColor="#DAA520"
+        android:pathData="M30,58 L78,58 L78,62 L30,62 Z" />
+
+    <!-- Body center vertical gold strip -->
+    <path
+        android:fillColor="#DAA520"
+        android:pathData="M52,58 L56,58 L56,78 L52,78 Z" />
+
+    <!-- Chest interior glow (blue) -->
+    <path
+        android:fillColor="#4169E1"
+        android:pathData="M34,54 L74,54 L76,58 L32,58 Z" />
+
+    <!-- Interior golden glow overlay -->
+    <path
+        android:fillColor="#FFD700"
+        android:fillAlpha="0.5"
+        android:pathData="M38,54 L70,54 L72,58 L36,58 Z" />
+
+    <!-- Chest lid (open, trapezoid tilting back) -->
+    <path
+        android:fillColor="#A0522D"
+        android:pathData="M30,54 L34,26 L74,26 L78,54 Z" />
+
+    <!-- Lid horizontal gold band -->
+    <path
+        android:fillColor="#DAA520"
+        android:pathData="M33,38 L75,38 L76,42 L32,42 Z" />
+
+    <!-- Lid top gold edge -->
+    <path
+        android:fillColor="#DAA520"
+        android:pathData="M34,26 L74,26 L74,30 L34,30 Z" />
+
+    <!-- Lid left gold edge -->
+    <path
+        android:fillColor="#DAA520"
+        android:pathData="M30,54 L34,26 L37,26 L33,54 Z" />
+
+    <!-- Lid right gold edge -->
+    <path
+        android:fillColor="#DAA520"
+        android:pathData="M78,54 L74,26 L71,26 L75,54 Z" />
+
+    <!-- Lid center vertical gold strip -->
+    <path
+        android:fillColor="#DAA520"
+        android:pathData="M52,26 L56,26 L56,38 L52,38 Z" />
+
+    <!-- Keyhole circle -->
+    <path
+        android:fillColor="#FFD700"
+        android:pathData="M52,67 A3,3 0 1,1 56,67 A3,3 0 1,1 52,67 Z" />
+
+    <!-- Keyhole stem -->
+    <path
+        android:fillColor="#FFD700"
+        android:pathData="M53,70 L55,70 L55,75 L53,75 Z" />
+
+    <!-- === SPARKLES above chest === -->
+    <path
+        android:fillColor="#FFD700"
+        android:pathData="M42,20 L44,15 L46,20 L44,25 Z" />
+
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M58,14 L59,11 L60,14 L59,17 Z" />
+
+    <path
+        android:fillColor="#FFD700"
+        android:pathData="M52,8 L53,6 L54,8 L53,10 Z" />
+
+    <path
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.8"
+        android:pathData="M34,16 L35,14 L36,16 L35,18 Z" />
+
+    <path
+        android:fillColor="#FFD700"
+        android:fillAlpha="0.8"
+        android:pathData="M68,18 L69,16 L70,18 L69,20 Z" />
+
+    <!-- Light rays from chest opening -->
+    <path
+        android:fillColor="#FFD700"
+        android:fillAlpha="0.15"
+        android:pathData="M40,54 L36,24 L40,26 L42,54 Z" />
+    <path
+        android:fillColor="#FFD700"
+        android:fillAlpha="0.15"
+        android:pathData="M54,54 L54,6 L56,6 L56,54 Z" />
+    <path
+        android:fillColor="#FFD700"
+        android:fillAlpha="0.15"
+        android:pathData="M66,54 L68,26 L72,24 L70,54 Z" />
+
+</vector>
