@@ -23,9 +23,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.example.xeye.progress.Category
+import com.example.xeye.progress.GameScreen
 import com.example.xeye.sound.SoundManager
 import com.example.xeye.ui.CameraPreview
+import com.example.xeye.ui.CollectionScreen
+import com.example.xeye.ui.DiaryScreen
+import com.example.xeye.ui.DqMenuOverlay
 import com.example.xeye.ui.ExamineOverlay
+import com.example.xeye.ui.QuestScreen
+import com.example.xeye.ui.AchievementScreen
 import com.example.xeye.ui.XeyeTheme
 import com.example.xeye.viewmodel.CameraViewModel
 import java.io.ByteArrayOutputStream
@@ -122,6 +129,7 @@ class MainActivity : ComponentActivity() {
                 }
 
                 Box(modifier = Modifier.fillMaxSize()) {
+                    // Camera preview (always visible behind overlays)
                     cameraProvider?.let { provider ->
                         CameraPreview(
                             preview = preview,
@@ -131,29 +139,87 @@ class MainActivity : ComponentActivity() {
                         )
                     }
 
-                    ExamineOverlay(
-                        currentMessage = uiState.currentMessage,
-                        isInferring = uiState.isInferring,
-                        isModelReady = uiState.isModelReady,
-                        isAutoExamine = uiState.isAutoExamine,
-                        playerName = uiState.playerName,
-                        level = uiState.level,
-                        levelTitle = uiState.levelTitle,
-                        totalExamined = uiState.totalExamined,
-                        currentLevelXp = uiState.currentLevelXp,
-                        xpToNextLevel = uiState.xpToNextLevel,
-                        isMaxLevel = uiState.isMaxLevel,
-                        leveledUp = uiState.leveledUp,
-                        modelError = uiState.modelError,
-                        onExamine = { onExamine() },
-                        onToggleAutoExamine = { viewModel.toggleAutoExamine() },
-                        onClearLevelUp = { viewModel.clearLevelUpFlag() },
-                        onSetPlayerName = { viewModel.setPlayerName(it) },
-                        onTypeChar = { soundManager.playTypeChar() },
-                        onTypeEnd = { soundManager.playTypeEnd() },
-                        onDiscovery = { soundManager.playDiscovery() },
-                        modifier = Modifier.fillMaxSize()
-                    )
+                    // Main camera/examine overlay
+                    if (uiState.currentScreen == GameScreen.CAMERA) {
+                        ExamineOverlay(
+                            currentMessage = uiState.currentMessage,
+                            isInferring = uiState.isInferring,
+                            isModelReady = uiState.isModelReady,
+                            isAutoExamine = uiState.isAutoExamine,
+                            playerName = uiState.playerName,
+                            level = uiState.level,
+                            levelTitle = uiState.levelTitle,
+                            totalExamined = uiState.totalExamined,
+                            currentLevelXp = uiState.currentLevelXp,
+                            xpToNextLevel = uiState.xpToNextLevel,
+                            isMaxLevel = uiState.isMaxLevel,
+                            leveledUp = uiState.leveledUp,
+                            currentRarity = uiState.currentRarity,
+                            xpGained = uiState.xpGained,
+                            currentCombo = uiState.currentCombo,
+                            showRarityResult = uiState.showRarityResult,
+                            newAchievements = uiState.newAchievements,
+                            collectionCount = uiState.collectionCount,
+                            currentItemName = uiState.currentItemName,
+                            modelError = uiState.modelError,
+                            onExamine = { onExamine() },
+                            onToggleAutoExamine = { viewModel.toggleAutoExamine() },
+                            onClearLevelUp = { viewModel.clearLevelUpFlag() },
+                            onClearRarityResult = { viewModel.clearRarityResult() },
+                            onClearNewAchievements = { viewModel.clearNewAchievements() },
+                            onSetPlayerName = { viewModel.setPlayerName(it) },
+                            onOpenMenu = { viewModel.navigateTo(GameScreen.MENU) },
+                            onTypeChar = { soundManager.playTypeChar() },
+                            onTypeEnd = { soundManager.playTypeEnd() },
+                            onDiscovery = { soundManager.playDiscovery() },
+                            modifier = Modifier.fillMaxSize()
+                        )
+                    }
+
+                    // DQ Menu overlay
+                    if (uiState.currentScreen == GameScreen.MENU) {
+                        DqMenuOverlay(
+                            onSelect = { screen -> viewModel.navigateTo(screen) },
+                            onBack = { viewModel.navigateTo(GameScreen.CAMERA) },
+                            collectionCount = uiState.collectionCount,
+                        )
+                    }
+
+                    // Collection screen
+                    if (uiState.currentScreen == GameScreen.COLLECTION) {
+                        CollectionScreen(
+                            entries = uiState.recentEntries,
+                            categoryCounts = uiState.categoryCounts,
+                            imageLoader = { viewModel.getEntryImage(it) },
+                            onBack = { viewModel.navigateTo(GameScreen.MENU) },
+                            onFilterCategory = { /* TODO: implement filter */ },
+                        )
+                    }
+
+                    // Diary screen
+                    if (uiState.currentScreen == GameScreen.DIARY) {
+                        DiaryScreen(
+                            entries = uiState.recentEntries,
+                            imageLoader = { viewModel.getEntryImage(it) },
+                            onBack = { viewModel.navigateTo(GameScreen.MENU) },
+                        )
+                    }
+
+                    // Quest screen
+                    if (uiState.currentScreen == GameScreen.QUESTS) {
+                        QuestScreen(
+                            getQuests = { viewModel.getActiveQuests() },
+                            onBack = { viewModel.navigateTo(GameScreen.MENU) },
+                        )
+                    }
+
+                    // Achievement screen
+                    if (uiState.currentScreen == GameScreen.ACHIEVEMENTS) {
+                        AchievementScreen(
+                            unlockedIds = uiState.unlockedAchievementIds,
+                            onBack = { viewModel.navigateTo(GameScreen.MENU) },
+                        )
+                    }
                 }
             }
         }

@@ -14,9 +14,13 @@ class ProgressStore(context: Context) {
         get() = prefs.getInt("total_examined", 0)
         set(value) { prefs.edit().putInt("total_examined", value).commit() }
 
-    var totalXp: Int
-        get() = prefs.getInt("total_xp", 0)
-        private set(value) { prefs.edit().putInt("total_xp", value).commit() }
+    var totalXp: Long
+        get() = prefs.getLong("total_xp", 0L)
+        private set(value) { prefs.edit().putLong("total_xp", value).commit() }
+
+    var maxCombo: Int
+        get() = prefs.getInt("max_combo", 0)
+        set(value) { prefs.edit().putInt("max_combo", value).commit() }
 
     val level: Int get() {
         var lv = MAX_LEVEL
@@ -24,11 +28,11 @@ class ProgressStore(context: Context) {
         return lv
     }
 
-    val currentLevelXp: Int get() = totalXp - xpForLevel(level)
+    val currentLevelXp: Int get() = (totalXp - xpForLevel(level)).toInt()
 
     val xpToNextLevel: Int get() {
         if (level >= MAX_LEVEL) return 0
-        return xpForLevel(level + 1) - xpForLevel(level)
+        return (xpForLevel(level + 1) - xpForLevel(level)).toInt()
     }
 
     val levelTitle: String get() = LEVEL_TITLES.getOrElse(level - 1) { "万物を見通す者" }
@@ -42,10 +46,10 @@ class ProgressStore(context: Context) {
         return level > oldLevel
     }
 
-    private fun xpForLevel(level: Int): Int {
+    private fun xpForLevel(level: Int): Long {
         if (level <= 1) return 0
         val n = level.toLong()
-        return (100L * n * n * n).toInt()
+        return 100L * n * n * n
     }
 
     companion object {

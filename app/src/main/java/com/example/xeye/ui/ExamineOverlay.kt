@@ -49,6 +49,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.xeye.progress.Category
+import com.example.xeye.progress.ExamineEntry
+import com.example.xeye.progress.GameScreen
+import com.example.xeye.progress.Rarity
 import kotlinx.coroutines.delay
 
 // Examining state animation duration
@@ -68,11 +72,21 @@ fun ExamineOverlay(
     xpToNextLevel: Int = 100,
     isMaxLevel: Boolean = false,
     leveledUp: Boolean = false,
+    currentRarity: Rarity = Rarity.N,
+    xpGained: Int = 0,
+    currentCombo: Int = 0,
+    showRarityResult: Boolean = false,
+    newAchievements: List<String> = emptyList(),
+    currentItemName: String = "",
+    collectionCount: Int = 0,
     modelError: String? = null,
     onExamine: () -> Unit,
     onToggleAutoExamine: () -> Unit = {},
     onClearLevelUp: () -> Unit = {},
+    onClearRarityResult: () -> Unit = {},
+    onClearNewAchievements: () -> Unit = {},
     onSetPlayerName: (String) -> Unit = {},
+    onOpenMenu: () -> Unit = {},
     onTypeChar: () -> Unit = {},
     onTypeEnd: () -> Unit = {},
     onDiscovery: () -> Unit = {},
@@ -172,12 +186,55 @@ fun ExamineOverlay(
             )
         }
 
+        // Menu button top-right
+        if (isModelReady) {
+            MenuButton(
+                onClick = onOpenMenu,
+                modifier = Modifier
+                    .align(Alignment.TopEnd)
+                    .padding(end = 12.dp, top = 48.dp),
+            )
+        }
+
+        // Combo display
+        if (currentCombo >= 3 && !isInferring) {
+            Text(
+                text = "${currentCombo} COMBO! ×${if (currentCombo >= 10) "3" else if (currentCombo >= 5) "2" else "1.5"}",
+                color = Color(0xFFFF4444),
+                fontSize = 16.sp,
+                fontWeight = FontWeight.Bold,
+                fontFamily = FontFamily.Monospace,
+                modifier = Modifier
+                    .align(Alignment.TopCenter)
+                    .padding(top = 52.dp),
+            )
+        }
+
         // Level up popup
         if (showLevelUp) {
             LevelUpPopup(
                 level = level,
                 levelTitle = levelTitle,
                 modifier = Modifier.align(Alignment.TopCenter),
+            )
+        }
+
+        // Rarity result popup
+        if (showRarityResult && !isInferring) {
+            RarityResultPopup(
+                rarity = currentRarity,
+                xpGained = xpGained,
+                combo = currentCombo,
+                itemName = currentItemName,
+                onDismiss = onClearRarityResult,
+            )
+        }
+
+        // Achievement unlock popup
+        if (newAchievements.isNotEmpty()) {
+            AchievementPopup(
+                titles = newAchievements,
+                onDismiss = onClearNewAchievements,
             )
         }
 
