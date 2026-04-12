@@ -85,7 +85,7 @@ class VlmInferenceEngine(private val context: Context) {
                         "日本語で描写してください。" +
                         "必ず「〇〇が おかれている！」という形式で始めてください。" +
                         "その後、2〜3行で面白いコメントや感想を添えてください。" +
-                        "ドラクエスタイルのセリフとして「フフフ…」「なんと…！」「おや？」「まさか…」などを使ってください。" +
+                        "ドラクエスタイルのセリフとして「なんと…！」「おや？」「まさか…」などを使ってください。ただし「フフフ」は多用しないでください。" +
                         "合計3〜4行で、句点で終わること。"
                     ),
                     samplerConfig = SamplerConfig(
@@ -119,7 +119,7 @@ class VlmInferenceEngine(private val context: Context) {
 
     private fun bitmapToJpegBytes(bitmap: Bitmap): ByteArray {
         val stream = ByteArrayOutputStream()
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 85, stream)
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 50, stream)
         return stream.toByteArray()
     }
 

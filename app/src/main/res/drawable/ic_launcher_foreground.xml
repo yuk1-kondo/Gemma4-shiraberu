@@ -5,114 +5,90 @@
     android:viewportWidth="108"
     android:viewportHeight="108">
 
-    <!-- === TREASURE CHEST (DQ-style) === -->
+    <!-- PIXEL ART TREASURE CHEST (4dp grid) -->
 
-    <!-- Chest body -->
-    <path
-        android:fillColor="#8B4513"
-        android:pathData="M30,58 L78,58 L78,82 L30,82 Z" />
-
-    <!-- Body bottom gold band -->
-    <path
-        android:fillColor="#DAA520"
-        android:pathData="M30,78 L78,78 L78,82 L30,82 Z" />
-
-    <!-- Body top gold band -->
-    <path
-        android:fillColor="#DAA520"
-        android:pathData="M30,58 L78,58 L78,62 L30,62 Z" />
-
-    <!-- Body center vertical gold strip -->
-    <path
-        android:fillColor="#DAA520"
-        android:pathData="M52,58 L56,58 L56,78 L52,78 Z" />
-
-    <!-- Chest interior glow (blue) -->
-    <path
-        android:fillColor="#4169E1"
-        android:pathData="M34,54 L74,54 L76,58 L32,58 Z" />
-
-    <!-- Interior golden glow overlay -->
-    <path
-        android:fillColor="#FFD700"
-        android:fillAlpha="0.5"
-        android:pathData="M38,54 L70,54 L72,58 L36,58 Z" />
-
-    <!-- Chest lid (open, trapezoid tilting back) -->
-    <path
-        android:fillColor="#A0522D"
-        android:pathData="M30,54 L34,26 L74,26 L78,54 Z" />
-
-    <!-- Lid horizontal gold band -->
-    <path
-        android:fillColor="#DAA520"
-        android:pathData="M33,38 L75,38 L76,42 L32,42 Z" />
-
+    <!-- === LID (dark red) === -->
     <!-- Lid top gold edge -->
-    <path
-        android:fillColor="#DAA520"
-        android:pathData="M34,26 L74,26 L74,30 L34,30 Z" />
+    <path android:fillColor="#FFD700" android:pathData="M26,26 H82 V30 H26 Z"/>
+    <!-- Lid row 1 -->
+    <path android:fillColor="#FFD700" android:pathData="M26,30 H30 V34 H26 Z"/>
+    <path android:fillColor="#C0392B" android:pathData="M30,30 H78 V34 H30 Z"/>
+    <path android:fillColor="#FFD700" android:pathData="M78,30 H82 V34 H78 Z"/>
+    <!-- Lid row 2 -->
+    <path android:fillColor="#FFD700" android:pathData="M26,34 H30 V38 H26 Z"/>
+    <path android:fillColor="#C0392B" android:pathData="M30,34 H74 V38 H30 Z"/>
+    <path android:fillColor="#E74C3C" android:pathData="M74,34 H78 V38 H74 Z"/>
+    <path android:fillColor="#FFD700" android:pathData="M78,34 H82 V38 H78 Z"/>
+    <!-- Lid gold band -->
+    <path android:fillColor="#FFD700" android:pathData="M26,38 H30 V42 H26 Z"/>
+    <path android:fillColor="#DAA520" android:pathData="M30,38 H78 V42 H30 Z"/>
+    <path android:fillColor="#FFD700" android:pathData="M78,38 H82 V42 H78 Z"/>
+    <!-- Lid vertical center gold strip -->
+    <path android:fillColor="#FFD700" android:pathData="M50,30 H54 V38 H50 Z"/>
+    <!-- Lid row 3 -->
+    <path android:fillColor="#FFD700" android:pathData="M26,42 H30 V46 H26 Z"/>
+    <path android:fillColor="#C0392B" android:pathData="M30,42 H78 V46 H30 Z"/>
+    <path android:fillColor="#FFD700" android:pathData="M78,42 H82 V46 H78 Z"/>
+    <!-- Lid row 4 -->
+    <path android:fillColor="#FFD700" android:pathData="M26,46 H30 V50 H26 Z"/>
+    <path android:fillColor="#922B21" android:pathData="M30,46 H78 V50 H30 Z"/>
+    <path android:fillColor="#FFD700" android:pathData="M78,46 H82 V50 H78 Z"/>
 
-    <!-- Lid left gold edge -->
-    <path
-        android:fillColor="#DAA520"
-        android:pathData="M30,54 L34,26 L37,26 L33,54 Z" />
+    <!-- === OPENING GLOW === -->
+    <path android:fillColor="#4169E1" android:pathData="M30,50 H78 V54 H30 Z"/>
+    <path android:fillColor="#FFED4A" android:pathData="M34,50 H74 V54 H34 Z"/>
 
-    <!-- Lid right gold edge -->
-    <path
-        android:fillColor="#DAA520"
-        android:pathData="M78,54 L74,26 L71,26 L75,54 Z" />
+    <!-- === BODY (brown) === -->
+    <!-- Body gold band top -->
+    <path android:fillColor="#FFD700" android:pathData="M26,54 H30 V58 H26 Z"/>
+    <path android:fillColor="#DAA520" android:pathData="M30,54 H78 V58 H30 Z"/>
+    <path android:fillColor="#FFD700" android:pathData="M78,54 H82 V58 H78 Z"/>
+    <!-- Body vertical center gold strip -->
+    <path android:fillColor="#DAA520" android:pathData="M50,54 H54 V58 H50 Z"/>
+    <!-- Body row 1 -->
+    <path android:fillColor="#FFD700" android:pathData="M26,58 H30 V62 H26 Z"/>
+    <path android:fillColor="#6B3410" android:pathData="M30,58 H78 V62 H30 Z"/>
+    <path android:fillColor="#FFD700" android:pathData="M78,58 H82 V62 H78 Z"/>
+    <!-- Body row 2 (lighter for depth) -->
+    <path android:fillColor="#FFD700" android:pathData="M26,62 H30 V66 H26 Z"/>
+    <path android:fillColor="#8B4513" android:pathData="M30,62 H78 V66 H30 Z"/>
+    <path android:fillColor="#FFD700" android:pathData="M78,62 H82 V66 H78 Z"/>
+    <!-- Body row 3 - keyhole -->
+    <path android:fillColor="#FFD700" android:pathData="M26,66 H30 V70 H26 Z"/>
+    <path android:fillColor="#8B4513" android:pathData="M30,66 H50 V70 H30 Z"/>
+    <path android:fillColor="#FFD700" android:pathData="M50,66 H58 V70 H50 Z"/>
+    <path android:fillColor="#8B4513" android:pathData="M58,66 H78 V70 H58 Z"/>
+    <path android:fillColor="#FFD700" android:pathData="M78,66 H82 V70 H78 Z"/>
+    <!-- Body row 4 - keyhole stem -->
+    <path android:fillColor="#FFD700" android:pathData="M26,70 H30 V74 H26 Z"/>
+    <path android:fillColor="#8B4513" android:pathData="M30,70 H52 V74 H30 Z"/>
+    <path android:fillColor="#FFD700" android:pathData="M52,70 H56 V74 H52 Z"/>
+    <path android:fillColor="#8B4513" android:pathData="M56,70 H78 V74 H56 Z"/>
+    <path android:fillColor="#FFD700" android:pathData="M78,70 H82 V74 H78 Z"/>
+    <!-- Body row 5 -->
+    <path android:fillColor="#FFD700" android:pathData="M26,74 H30 V78 H26 Z"/>
+    <path android:fillColor="#6B3410" android:pathData="M30,74 H78 V78 H30 Z"/>
+    <path android:fillColor="#FFD700" android:pathData="M78,74 H82 V78 H78 Z"/>
+    <!-- Body bottom gold edge -->
+    <path android:fillColor="#FFD700" android:pathData="M26,78 H82 V82 H26 Z"/>
 
-    <!-- Lid center vertical gold strip -->
-    <path
-        android:fillColor="#DAA520"
-        android:pathData="M52,26 L56,26 L56,38 L52,38 Z" />
+    <!-- === FEET === -->
+    <path android:fillColor="#FFD700" android:pathData="M34,82 H38 V86 H34 Z"/>
+    <path android:fillColor="#FFD700" android:pathData="M70,82 H74 V86 H70 Z"/>
 
-    <!-- Keyhole circle -->
-    <path
-        android:fillColor="#FFD700"
-        android:pathData="M52,67 A3,3 0 1,1 56,67 A3,3 0 1,1 52,67 Z" />
+    <!-- === SPARKLES (pixel dots above chest) === -->
+    <path android:fillColor="#FFD700" android:pathData="M42,16 H46 V20 H42 Z"/>
+    <path android:fillColor="#FFFFFF" android:pathData="M54,12 H58 V16 H54 Z"/>
+    <path android:fillColor="#FFD700" android:pathData="M66,18 H70 V22 H66 Z"/>
+    <path android:fillColor="#FFFFFF" android:pathData="M34,20 H38 V24 H34 Z"/>
+    <path android:fillColor="#FFED4A" android:pathData="M46,20 H50 V24 H46 Z"/>
+    <path android:fillColor="#FFFFFF" android:pathData="M62,14 H66 V18 H62 Z"/>
+    <path android:fillColor="#FFD700" android:pathData="M50,16 H54 V20 H50 Z"/>
 
-    <!-- Keyhole stem -->
-    <path
-        android:fillColor="#FFD700"
-        android:pathData="M53,70 L55,70 L55,75 L53,75 Z" />
-
-    <!-- === SPARKLES above chest === -->
-    <path
-        android:fillColor="#FFD700"
-        android:pathData="M42,20 L44,15 L46,20 L44,25 Z" />
-
-    <path
-        android:fillColor="#FFFFFF"
-        android:pathData="M58,14 L59,11 L60,14 L59,17 Z" />
-
-    <path
-        android:fillColor="#FFD700"
-        android:pathData="M52,8 L53,6 L54,8 L53,10 Z" />
-
-    <path
-        android:fillColor="#FFFFFF"
-        android:fillAlpha="0.8"
-        android:pathData="M34,16 L35,14 L36,16 L35,18 Z" />
-
-    <path
-        android:fillColor="#FFD700"
-        android:fillAlpha="0.8"
-        android:pathData="M68,18 L69,16 L70,18 L69,20 Z" />
-
-    <!-- Light rays from chest opening -->
-    <path
-        android:fillColor="#FFD700"
-        android:fillAlpha="0.15"
-        android:pathData="M40,54 L36,24 L40,26 L42,54 Z" />
-    <path
-        android:fillColor="#FFD700"
-        android:fillAlpha="0.15"
-        android:pathData="M54,54 L54,6 L56,6 L56,54 Z" />
-    <path
-        android:fillColor="#FFD700"
-        android:fillAlpha="0.15"
-        android:pathData="M66,54 L68,26 L72,24 L70,54 Z" />
+    <!-- === LIGHT RAYS from opening === -->
+    <path android:fillColor="#FFD700" android:fillAlpha="0.2" android:pathData="M38,50 H42 V34 H38 Z"/>
+    <path android:fillColor="#FFD700" android:fillAlpha="0.2" android:pathData="M50,50 H54 V22 H50 Z"/>
+    <path android:fillColor="#FFD700" android:fillAlpha="0.2" android:pathData="M66,50 H70 V34 H66 Z"/>
+    <path android:fillColor="#FFFFFF" android:fillAlpha="0.1" android:pathData="M58,50 H62 V28 H58 Z"/>
 
 </vector>
