@@ -1,0 +1,490 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0D8EE0ABE183C7BE9C4300DB /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2B6CCB7AA6E1B6F930AB35 /* RootView.swift */; };
+		145225BD0E47E2BCB892FE24 /* MockInferenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9196E7A07229627DA8AA94C0 /* MockInferenceService.swift */; };
+		1474853FB486BA9E7552E156 /* StoryFlavorInferenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2793DF867BB9125D3814ABD /* StoryFlavorInferenceService.swift */; };
+		226544600099B660D22D7C78 /* XEyeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8772C98F8A2CAF28087E0109 /* XEyeApp.swift */; };
+		509156F9CFE14676F10137E4 /* CollectionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AB4F9BC0FCEBB663286523 /* CollectionStore.swift */; };
+		5094E37B735016C094EAEEBC /* InferenceServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45F5D0397795432E9B094C9 /* InferenceServiceFactory.swift */; };
+		885A8864A574AB2346B48D07 /* HFAPI in Frameworks */ = {isa = PBXBuildFile; productRef = C2083F9D35099375E9AB89FE /* HFAPI */; };
+		97F82ACEB4D706B012758F79 /* MLXBridges.swift in Sources */ = {isa = PBXBuildFile; fileRef = F665F41C1550B20990C7BE04 /* MLXBridges.swift */; };
+		B915FE8DFF524358FB439825 /* GameModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF1DF04247FD1F7C5A13FBF /* GameModels.swift */; };
+		B9F88514D1ACD82B2A0E1215 /* GemmaCoreMLInferenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2C42C5D7C39741711F4DC6 /* GemmaCoreMLInferenceService.swift */; };
+		BCF63A4B4421BEE9B76CD6A2 /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6D1F2FE277ED551AA6CAF7 /* CameraService.swift */; };
+		BFFBE942592BF7F039AE5F34 /* GameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C05BF54F3354261DB0120F /* GameLogic.swift */; };
+		C0B0221CAF3DA3720B10FE4B /* MLXInferenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8DBF90A4AA7485D49B9331 /* MLXInferenceService.swift */; };
+		C746CCE31BAB15BE85891D75 /* GemmaTokenDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55BC2F7C6E0E9C8DFA8D3B1 /* GemmaTokenDecoder.swift */; };
+		CFEE0F9E2439E7F2A0399198 /* Tokenizers in Frameworks */ = {isa = PBXBuildFile; productRef = 47984E9FEB937A6E2E38097F /* Tokenizers */; };
+		D5D5D238462C60DF6F038B97 /* MLXLMCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A10CCA0103F8AE836B800326 /* MLXLMCommon */; };
+		D77B232416D74EBC4FB46445 /* ProgressStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4BE6C98A6874F3AA235746 /* ProgressStore.swift */; };
+		D7AE3BB0C6DA35F825572A80 /* CameraPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDB4ACEB51173EE673EDB0C /* CameraPreviewView.swift */; };
+		DFE009537FBDD44996DB6F19 /* InferenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD6EBABDD518A419E38D220 /* InferenceService.swift */; };
+		E00ADB99FA29ECDFFEF8FF64 /* MLXVLM in Frameworks */ = {isa = PBXBuildFile; productRef = FB11C1E10E69F0F1BF62774C /* MLXVLM */; };
+		E73A3BEB23D2F38AF88CEDB9 /* ExamineOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3E7EA7987D8BB3875D86E8 /* ExamineOverlayView.swift */; };
+		EDD555F34DF26193AA24C256 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBA47A3A600B6CC7760D0B1 /* CameraViewModel.swift */; };
+		EEB61A24B9D706B98099AD6D /* AppleVisionInferenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22405C6B704C94BCC963C081 /* AppleVisionInferenceService.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0A2B6CCB7AA6E1B6F930AB35 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		0F2C42C5D7C39741711F4DC6 /* GemmaCoreMLInferenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemmaCoreMLInferenceService.swift; sourceTree = "<group>"; };
+		1E6D1F2FE277ED551AA6CAF7 /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
+		20AB4F9BC0FCEBB663286523 /* CollectionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionStore.swift; sourceTree = "<group>"; };
+		22405C6B704C94BCC963C081 /* AppleVisionInferenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleVisionInferenceService.swift; sourceTree = "<group>"; };
+		2F8DBF90A4AA7485D49B9331 /* MLXInferenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLXInferenceService.swift; sourceTree = "<group>"; };
+		3B3E7EA7987D8BB3875D86E8 /* ExamineOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamineOverlayView.swift; sourceTree = "<group>"; };
+		3F4BE6C98A6874F3AA235746 /* ProgressStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressStore.swift; sourceTree = "<group>"; };
+		59C05BF54F3354261DB0120F /* GameLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLogic.swift; sourceTree = "<group>"; };
+		5CDB4ACEB51173EE673EDB0C /* CameraPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreviewView.swift; sourceTree = "<group>"; };
+		7BF1DF04247FD1F7C5A13FBF /* GameModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModels.swift; sourceTree = "<group>"; };
+		8772C98F8A2CAF28087E0109 /* XEyeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XEyeApp.swift; sourceTree = "<group>"; };
+		8D5DC74ABAEA7B789D865DE3 /* XEyeApp.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = XEyeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9196E7A07229627DA8AA94C0 /* MockInferenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockInferenceService.swift; sourceTree = "<group>"; };
+		ABBA47A3A600B6CC7760D0B1 /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
+		B45F5D0397795432E9B094C9 /* InferenceServiceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InferenceServiceFactory.swift; sourceTree = "<group>"; };
+		C55BC2F7C6E0E9C8DFA8D3B1 /* GemmaTokenDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemmaTokenDecoder.swift; sourceTree = "<group>"; };
+		E2793DF867BB9125D3814ABD /* StoryFlavorInferenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryFlavorInferenceService.swift; sourceTree = "<group>"; };
+		EDD6EBABDD518A419E38D220 /* InferenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InferenceService.swift; sourceTree = "<group>"; };
+		F665F41C1550B20990C7BE04 /* MLXBridges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLXBridges.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EF6CC81D83ACC3DDCD59F51A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E00ADB99FA29ECDFFEF8FF64 /* MLXVLM in Frameworks */,
+				D5D5D238462C60DF6F038B97 /* MLXLMCommon in Frameworks */,
+				CFEE0F9E2439E7F2A0399198 /* Tokenizers in Frameworks */,
+				885A8864A574AB2346B48D07 /* HFAPI in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		00856F3CB785130C22E2171B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D5DC74ABAEA7B789D865DE3 /* XEyeApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3247026BF1FB2B4BD484CB97 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				59C05BF54F3354261DB0120F /* GameLogic.swift */,
+				7BF1DF04247FD1F7C5A13FBF /* GameModels.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		39025AA1010825D19BB11189 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				20AB4F9BC0FCEBB663286523 /* CollectionStore.swift */,
+				3F4BE6C98A6874F3AA235746 /* ProgressStore.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		393DC7CD0E35570349E9C225 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				5CDB4ACEB51173EE673EDB0C /* CameraPreviewView.swift */,
+				3B3E7EA7987D8BB3875D86E8 /* ExamineOverlayView.swift */,
+				0A2B6CCB7AA6E1B6F930AB35 /* RootView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		4145FBB0D6AC4DF26AD2D009 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				1E6D1F2FE277ED551AA6CAF7 /* CameraService.swift */,
+				EDD6EBABDD518A419E38D220 /* InferenceService.swift */,
+				9196E7A07229627DA8AA94C0 /* MockInferenceService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		60BF0B51EBCC4002CDF2FBC3 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				ABBA47A3A600B6CC7760D0B1 /* CameraViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		7971FDAF5DCB4D7573AECA0F = {
+			isa = PBXGroup;
+			children = (
+				DB3146C4DE8B4E9EB5152E8F /* Sources */,
+				00856F3CB785130C22E2171B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D6047058E9B70C5AAEC0399F /* App */ = {
+			isa = PBXGroup;
+			children = (
+				22405C6B704C94BCC963C081 /* AppleVisionInferenceService.swift */,
+				0F2C42C5D7C39741711F4DC6 /* GemmaCoreMLInferenceService.swift */,
+				C55BC2F7C6E0E9C8DFA8D3B1 /* GemmaTokenDecoder.swift */,
+				B45F5D0397795432E9B094C9 /* InferenceServiceFactory.swift */,
+				F665F41C1550B20990C7BE04 /* MLXBridges.swift */,
+				2F8DBF90A4AA7485D49B9331 /* MLXInferenceService.swift */,
+				E2793DF867BB9125D3814ABD /* StoryFlavorInferenceService.swift */,
+				8772C98F8A2CAF28087E0109 /* XEyeApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		DB3146C4DE8B4E9EB5152E8F /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				D6047058E9B70C5AAEC0399F /* App */,
+				39025AA1010825D19BB11189 /* Data */,
+				3247026BF1FB2B4BD484CB97 /* Domain */,
+				4145FBB0D6AC4DF26AD2D009 /* Services */,
+				393DC7CD0E35570349E9C225 /* UI */,
+				60BF0B51EBCC4002CDF2FBC3 /* ViewModels */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6FF91A220E80467BED100938 /* XEyeApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BEAF75A3F3D299809A1B9CBC /* Build configuration list for PBXNativeTarget "XEyeApp" */;
+			buildPhases = (
+				8C8AF67C2EE830BCC3A69E0B /* Sources */,
+				EF6CC81D83ACC3DDCD59F51A /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = XEyeApp;
+			packageProductDependencies = (
+				FB11C1E10E69F0F1BF62774C /* MLXVLM */,
+				A10CCA0103F8AE836B800326 /* MLXLMCommon */,
+				47984E9FEB937A6E2E38097F /* Tokenizers */,
+				C2083F9D35099375E9AB89FE /* HFAPI */,
+			);
+			productName = XEyeApp;
+			productReference = 8D5DC74ABAEA7B789D865DE3 /* XEyeApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		01E581784B792AF44C8C4458 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					6FF91A220E80467BED100938 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = AC49AA6BE0FDC5771997E0DA /* Build configuration list for PBXProject "XEyeApp" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 7971FDAF5DCB4D7573AECA0F;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				B39E0B57408E630C5FF79999 /* XCRemoteSwiftPackageReference "mlx-swift-lm" */,
+				DC2BBE1EBCE100BFF33F9985 /* XCRemoteSwiftPackageReference "swift-hf-api" */,
+				F6CDA3892CD06CFE69942762 /* XCRemoteSwiftPackageReference "swift-tokenizers" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 00856F3CB785130C22E2171B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6FF91A220E80467BED100938 /* XEyeApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8C8AF67C2EE830BCC3A69E0B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEB61A24B9D706B98099AD6D /* AppleVisionInferenceService.swift in Sources */,
+				D7AE3BB0C6DA35F825572A80 /* CameraPreviewView.swift in Sources */,
+				BCF63A4B4421BEE9B76CD6A2 /* CameraService.swift in Sources */,
+				EDD555F34DF26193AA24C256 /* CameraViewModel.swift in Sources */,
+				509156F9CFE14676F10137E4 /* CollectionStore.swift in Sources */,
+				E73A3BEB23D2F38AF88CEDB9 /* ExamineOverlayView.swift in Sources */,
+				BFFBE942592BF7F039AE5F34 /* GameLogic.swift in Sources */,
+				B915FE8DFF524358FB439825 /* GameModels.swift in Sources */,
+				B9F88514D1ACD82B2A0E1215 /* GemmaCoreMLInferenceService.swift in Sources */,
+				C746CCE31BAB15BE85891D75 /* GemmaTokenDecoder.swift in Sources */,
+				DFE009537FBDD44996DB6F19 /* InferenceService.swift in Sources */,
+				5094E37B735016C094EAEEBC /* InferenceServiceFactory.swift in Sources */,
+				97F82ACEB4D706B012758F79 /* MLXBridges.swift in Sources */,
+				C0B0221CAF3DA3720B10FE4B /* MLXInferenceService.swift in Sources */,
+				145225BD0E47E2BCB892FE24 /* MockInferenceService.swift in Sources */,
+				D77B232416D74EBC4FB46445 /* ProgressStore.swift in Sources */,
+				0D8EE0ABE183C7BE9C4300DB /* RootView.swift in Sources */,
+				1474853FB486BA9E7552E156 /* StoryFlavorInferenceService.swift in Sources */,
+				226544600099B660D22D7C78 /* XEyeApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1173A5125735B792C8F5D001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5A72D2A7FDD9AFE6F6558BEB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A962CFA062CDB0A5D79CFD54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = AppConfig/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.xeyeios;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F20C00E39F1065FF064CB447 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = AppConfig/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.xeyeios;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AC49AA6BE0FDC5771997E0DA /* Build configuration list for PBXProject "XEyeApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A72D2A7FDD9AFE6F6558BEB /* Debug */,
+				1173A5125735B792C8F5D001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		BEAF75A3F3D299809A1B9CBC /* Build configuration list for PBXNativeTarget "XEyeApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F20C00E39F1065FF064CB447 /* Debug */,
+				A962CFA062CDB0A5D79CFD54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B39E0B57408E630C5FF79999 /* XCRemoteSwiftPackageReference "mlx-swift-lm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/adrgrondin/mlx-swift-lm.git";
+			requirement = {
+				branch = "port/gemma-4-model";
+				kind = branch;
+			};
+		};
+		DC2BBE1EBCE100BFF33F9985 /* XCRemoteSwiftPackageReference "swift-hf-api" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/DePasqualeOrg/swift-hf-api.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.2;
+			};
+		};
+		F6CDA3892CD06CFE69942762 /* XCRemoteSwiftPackageReference "swift-tokenizers" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/DePasqualeOrg/swift-tokenizers.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		47984E9FEB937A6E2E38097F /* Tokenizers */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F6CDA3892CD06CFE69942762 /* XCRemoteSwiftPackageReference "swift-tokenizers" */;
+			productName = Tokenizers;
+		};
+		A10CCA0103F8AE836B800326 /* MLXLMCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B39E0B57408E630C5FF79999 /* XCRemoteSwiftPackageReference "mlx-swift-lm" */;
+			productName = MLXLMCommon;
+		};
+		C2083F9D35099375E9AB89FE /* HFAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC2BBE1EBCE100BFF33F9985 /* XCRemoteSwiftPackageReference "swift-hf-api" */;
+			productName = HFAPI;
+		};
+		FB11C1E10E69F0F1BF62774C /* MLXVLM */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B39E0B57408E630C5FF79999 /* XCRemoteSwiftPackageReference "mlx-swift-lm" */;
+			productName = MLXVLM;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 01E581784B792AF44C8C4458 /* Project object */;
+}

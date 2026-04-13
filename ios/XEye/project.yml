@@ -1,0 +1,49 @@
+name: XEyeApp
+options:
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    IPHONEOS_DEPLOYMENT_TARGET: 17.0
+    TARGETED_DEVICE_FAMILY: "1,2"
+packages:
+  mlx-swift-lm:
+    url: https://github.com/adrgrondin/mlx-swift-lm.git
+    branch: port/gemma-4-model
+  swift-tokenizers:
+    url: https://github.com/DePasqualeOrg/swift-tokenizers.git
+    from: "0.3.2"
+  swift-hf-api:
+    url: https://github.com/DePasqualeOrg/swift-hf-api.git
+    from: "0.2.2"
+targets:
+  XEyeApp:
+    type: application
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources:
+      - path: Sources
+        excludes:
+          - "**/Tests/**"
+    dependencies:
+      - package: mlx-swift-lm
+        product: MLXVLM
+      - package: mlx-swift-lm
+        product: MLXLMCommon
+      - package: swift-tokenizers
+        product: Tokenizers
+      - package: swift-hf-api
+        product: HFAPI
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.xeyeios
+        INFOPLIST_FILE: AppConfig/Info.plist
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: ""
+schemes:
+  XEyeApp:
+    build:
+      targets:
+        XEyeApp: all
+    run:
+      config: Debug

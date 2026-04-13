@@ -11,3 +11,5 @@ local.properties
 *.apk
 *.aab
 .kotlin/
+ios/XEye/build/
+ios/XEye/.build/
