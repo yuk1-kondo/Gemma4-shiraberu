@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -373,12 +374,13 @@ fun CollectionScreen(
             Spacer(modifier = Modifier.height(8.dp))
 
             // Category filter pills
-            Row(
-                modifier = Modifier.fillMaxWidth(),
+            LazyRow(
                 horizontalArrangement = Arrangement.spacedBy(6.dp),
             ) {
-                FilterPill("全て", null, selectedCategory == null, onClick = { selectedCategory = null })
-                for (cat in Category.entries.take(5)) {
+                item {
+                    FilterPill("全て", null, selectedCategory == null, onClick = { selectedCategory = null })
+                }
+                items(Category.entries.toList()) { cat ->
                     FilterPill(cat.label, cat, selectedCategory == cat, onClick = { selectedCategory = cat })
                 }
             }

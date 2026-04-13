@@ -90,6 +90,8 @@ fun ExamineOverlay(
     onTypeChar: () -> Unit = {},
     onTypeEnd: () -> Unit = {},
     onDiscovery: () -> Unit = {},
+    shouldAutoTrigger: Boolean = false,
+    onClearAutoTrigger: () -> Unit = {},
     modifier: Modifier = Modifier,
 ) {
     val displayedText = remember { mutableStateOf("") }
@@ -102,6 +104,15 @@ fun ExamineOverlay(
         if (isModelReady && playerName.isEmpty()) {
             delay(1500)
             showNameDialog = true
+        }
+    }
+
+    // Auto-trigger: fire first examine when AUTO is toggled on
+    LaunchedEffect(shouldAutoTrigger) {
+        if (shouldAutoTrigger && isModelReady && !isInferring) {
+            onClearAutoTrigger()
+            delay(500)
+            onExamine()
         }
     }
 

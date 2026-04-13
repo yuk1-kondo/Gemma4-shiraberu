@@ -13,6 +13,7 @@ import android.provider.Settings
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
@@ -58,6 +59,7 @@ class MainActivity : ComponentActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         viewModel = CameraViewModel(application)
         soundManager = SoundManager(this)
@@ -172,6 +174,8 @@ class MainActivity : ComponentActivity() {
                             onTypeChar = { soundManager.playTypeChar() },
                             onTypeEnd = { soundManager.playTypeEnd() },
                             onDiscovery = { soundManager.playDiscovery() },
+                            shouldAutoTrigger = uiState.shouldAutoTrigger,
+                            onClearAutoTrigger = { viewModel.clearAutoTrigger() },
                             modifier = Modifier.fillMaxSize()
                         )
                     }

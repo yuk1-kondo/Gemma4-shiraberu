@@ -165,13 +165,20 @@ class CameraViewModel(application: Application) : AndroidViewModel(application) 
             autoExamineJob = null
             _uiState.value = _uiState.value.copy(isAutoExamine = false)
         } else {
-            _uiState.value = _uiState.value.copy(isAutoExamine = true)
+            _uiState.value = _uiState.value.copy(
+                isAutoExamine = true,
+                shouldAutoTrigger = true,
+            )
             autoExamineJob = viewModelScope.launch {
                 delay(180_000)
                 _uiState.value = _uiState.value.copy(isAutoExamine = false)
                 autoExamineJob = null
             }
         }
+    }
+
+    fun clearAutoTrigger() {
+        _uiState.value = _uiState.value.copy(shouldAutoTrigger = false)
     }
 
     // Screen navigation
@@ -333,4 +340,5 @@ data class XeyeUiState(
     val currentItemName: String = "",
     val unlockedAchievementIds: Set<String> = emptySet(),
     val currentScreen: GameScreen = GameScreen.CAMERA,
+    val shouldAutoTrigger: Boolean = false,
 )

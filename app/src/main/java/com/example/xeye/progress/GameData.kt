@@ -241,7 +241,7 @@ object QuestDefinitions {
         Quest("q_rare_sr", "珍品ハンター", "SRを1つ入手せよ", null, 1, 300),
         Quest("q_rare_ssr", "至宝の発見", "SSRを1つ入手せよ", null, 1, 1000),
         Quest("q_exam_20", "鑑定の旅", "合計20回鑑定せよ", null, 20, 200),
-        Quest("q_combo_5", "連続鑑定師", "5コンボを達成せよ", null, 5, 300),
+        Quest("q_combo_5", "連続鑑定師", "5コンボを達成せよ", null, 1, 300),
     )
 }
 

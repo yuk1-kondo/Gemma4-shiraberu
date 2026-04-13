@@ -15,7 +15,7 @@ class ProgressStore(context: Context) {
         set(value) { prefs.edit().putInt("total_examined", value).commit() }
 
     var totalXp: Long
-        get() = prefs.getLong("total_xp", 0L)
+        get() = try { prefs.getLong("total_xp", 0L) } catch (_: ClassCastException) { prefs.getInt("total_xp", 0).toLong() }
         private set(value) { prefs.edit().putLong("total_xp", value).commit() }
 
     var maxCombo: Int
