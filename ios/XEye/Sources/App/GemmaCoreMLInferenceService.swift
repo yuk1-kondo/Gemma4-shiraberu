@@ -260,6 +260,7 @@ public final class GemmaCoreMLInferenceService: InferenceServing {
 
 public final class FallbackInferenceService: InferenceServing {
     private var usedFallbackForLastInference = false
+    private let primaryLoadTimeoutNanoseconds: UInt64 = 20_000_000_000
 
     public var backendDisplayName: String {
         if primary.isModelReady && !usedFallbackForLastInference {
@@ -293,13 +294,38 @@ public final class FallbackInferenceService: InferenceServing {
     }
 
     public func loadModel() async {
-        await primary.loadModel()
+        let primaryLoadTask = Task { @MainActor in
+            await primary.loadModel()
+        }
+
+        let primaryCompleted = await waitForPrimaryLoad(primaryLoadTask)
+        if !primaryCompleted {
+            primaryLoadTask.cancel()
+        }
+
         usedFallbackForLastInference = !primary.isModelReady
         if primary.isModelReady {
             return
         }
 
         await fallback.loadModel()
+    }
+
+    private func waitForPrimaryLoad(_ task: Task<Void, Never>) async -> Bool {
+        await withTaskGroup(of: Bool.self) { group in
+            group.addTask {
+                await task.value
+                return true
+            }
+            group.addTask {
+                try? await Task.sleep(nanoseconds: self.primaryLoadTimeoutNanoseconds)
+                return false
+            }
+
+            let completed = await group.next() ?? false
+            group.cancelAll()
+            return completed
+        }
     }
 
     public func examine(frame: CGImage) async throws -> InferenceResult {

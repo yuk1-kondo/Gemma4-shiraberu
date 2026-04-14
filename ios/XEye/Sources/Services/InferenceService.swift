@@ -1,7 +1,7 @@
 import CoreGraphics
 import Foundation
 
-public struct InferenceResult: Equatable {
+public struct InferenceResult: Equatable, Sendable {
     public let text: String
 
     public init(text: String) {
@@ -9,6 +9,7 @@ public struct InferenceResult: Equatable {
     }
 }
 
+@MainActor
 public protocol InferenceServing {
     var isModelReady: Bool { get }
     var lastError: String? { get }

@@ -1,20 +1,26 @@
 import Foundation
 
 public enum InferenceServiceFactory {
+    @MainActor
     public static func makeDefault() -> InferenceServing {
-        // MLX VLM generates DQ-style text via system prompt, so no StoryFlavor wrapper needed.
-        // Falls back to the existing CoreML + Apple Vision pipeline with StoryFlavor.
-        FallbackInferenceService(
-            primary: MLXInferenceService(),
-            fallback: StoryFlavorInferenceService(
-                base: FallbackInferenceService(
-                    primary: GemmaCoreMLInferenceService(modelName: "Gemma4Vision"),
-                    fallback: FallbackInferenceService(
-                        primary: AppleVisionInferenceService(),
-                        fallback: MockInferenceService()
-                    )
-                )
+        let simulatorModelPipeline = FallbackInferenceService(
+            primary: GemmaCoreMLInferenceService(modelName: "Gemma4Vision"),
+            fallback: FallbackInferenceService(
+                primary: AppleVisionInferenceService(),
+                fallback: MockInferenceService()
             )
         )
+
+        let deviceFallbackPipeline = FallbackInferenceService(
+            primary: AppleVisionInferenceService(),
+            fallback: MockInferenceService()
+        )
+
+#if targetEnvironment(simulator)
+        return simulatorModelPipeline
+#else
+        // LiteRT first on device, with a stable local fallback chain.
+        return LiteRTInferenceService(fallback: deviceFallbackPipeline)
+#endif
     }
 }

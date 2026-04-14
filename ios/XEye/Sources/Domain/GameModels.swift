@@ -1,6 +1,6 @@
 import Foundation
 
-public enum GameScreen: String, Codable, CaseIterable {
+public enum GameScreen: String, Codable, CaseIterable, Sendable {
     case camera
     case collection
     case diary
@@ -9,7 +9,7 @@ public enum GameScreen: String, Codable, CaseIterable {
     case menu
 }
 
-public enum Rarity: String, Codable, CaseIterable {
+public enum Rarity: String, Codable, CaseIterable, Sendable {
     case n
     case r
     case sr
@@ -34,7 +34,7 @@ public enum Rarity: String, Codable, CaseIterable {
     }
 }
 
-public enum Category: String, Codable, CaseIterable {
+public enum Category: String, Codable, CaseIterable, Sendable {
     case food
     case nature
     case animal
@@ -45,7 +45,7 @@ public enum Category: String, Codable, CaseIterable {
     case other
 }
 
-public struct ExamineEntry: Codable, Identifiable, Equatable {
+public struct ExamineEntry: Codable, Identifiable, Equatable, Sendable {
     public let id: UUID
     public let text: String
     public let category: Category
@@ -70,7 +70,7 @@ public struct ExamineEntry: Codable, Identifiable, Equatable {
     }
 }
 
-public struct Quest: Identifiable, Codable, Equatable {
+public struct Quest: Identifiable, Codable, Equatable, Sendable {
     public let id: String
     public let title: String
     public let description: String
@@ -101,7 +101,7 @@ public struct Quest: Identifiable, Codable, Equatable {
     }
 }
 
-public struct Achievement: Identifiable, Codable, Equatable {
+public struct Achievement: Identifiable, Codable, Equatable, Sendable {
     public let id: String
     public let title: String
     public let description: String

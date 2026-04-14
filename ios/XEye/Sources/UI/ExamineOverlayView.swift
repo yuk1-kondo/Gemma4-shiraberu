@@ -12,6 +12,8 @@ private enum DQPalette {
 struct CameraScreen: View {
     @ObservedObject var viewModel: CameraViewModel
     @State private var isMenuOpen = false
+    @State private var isNameDialogOpen = false
+    @State private var editingName = ""
 
     var body: some View {
         ZStack {
@@ -41,10 +43,23 @@ struct CameraScreen: View {
 
             VStack {
                 HStack(alignment: .top) {
-                    LevelHUD(viewModel: viewModel)
+                    Button {
+                        editingName = viewModel.playerName
+                        isNameDialogOpen = true
+                    } label: {
+                        LevelHUD(viewModel: viewModel)
+                    }
+                    .buttonStyle(.plain)
                     Spacer()
-                    MenuButtonView {
-                        isMenuOpen = true
+                    HStack(spacing: 8) {
+                        NameButtonView {
+                            editingName = viewModel.playerName
+                            isNameDialogOpen = true
+                        }
+
+                        MenuButtonView {
+                            isMenuOpen = true
+                        }
                     }
                 }
                 .padding(.horizontal, 12)
@@ -76,6 +91,12 @@ struct CameraScreen: View {
                         .padding(.bottom, 10)
                 }
 
+                if viewModel.isModelReady {
+                    StatusBanner(text: "\u{63A8}\u{8AD6}: \(localizedBackendLabel)", isWarning: false)
+                        .padding(.horizontal, 16)
+                        .padding(.bottom, 8)
+                }
+
                 DQMessageBoxView(text: displayMessage)
                     .padding(.horizontal, 16)
                     .padding(.bottom, 32)
@@ -98,6 +119,19 @@ struct CameraScreen: View {
         }
         .onDisappear {
             viewModel.stopCamera()
+        }
+        .sheet(isPresented: $isNameDialogOpen) {
+            NameEditSheet(
+                name: $editingName,
+                onSave: {
+                    let trimmed = editingName.trimmingCharacters(in: .whitespacesAndNewlines)
+                    viewModel.savePlayerName(trimmed)
+                    isNameDialogOpen = false
+                },
+                onCancel: {
+                    isNameDialogOpen = false
+                }
+            )
         }
     }
 
@@ -183,9 +217,15 @@ private struct LevelHUD: View {
                     .font(.system(size: 16, weight: .bold, design: .monospaced))
                     .foregroundStyle(DQPalette.gold)
 
-                Text(viewModel.playerName.isEmpty ? "\u{306A}\u{306A}\u{3057}\u{3055}\u{3093}" : viewModel.playerName)
-                    .font(.system(size: 12, design: .monospaced))
-                    .foregroundStyle(viewModel.playerName.isEmpty ? DQPalette.whiteMuted : .white)
+                HStack(spacing: 4) {
+                    Text(viewModel.playerName.isEmpty ? "\u{306A}\u{306A}\u{3057}\u{3055}\u{3093}" : viewModel.playerName)
+                        .font(.system(size: 12, design: .monospaced))
+                        .foregroundStyle(viewModel.playerName.isEmpty ? DQPalette.whiteMuted : .white)
+
+                    Text("\u{7DE8}\u{96C6}")
+                        .font(.system(size: 10, weight: .bold, design: .monospaced))
+                        .foregroundStyle(DQPalette.whiteMuted)
+                }
             }
 
             Text(viewModel.levelTitle)
@@ -221,12 +261,69 @@ private struct LevelHUD: View {
     }
 }
 
+private struct NameEditSheet: View {
+    @Binding var name: String
+    let onSave: () -> Void
+    let onCancel: () -> Void
+
+    var body: some View {
+        NavigationStack {
+            VStack(alignment: .leading, spacing: 12) {
+                Text("\u{30D7}\u{30EC}\u{30A4}\u{30E4}\u{30FC}\u{540D}")
+                    .font(.system(size: 14, weight: .bold, design: .monospaced))
+
+                TextField("\u{306A}\u{306A}\u{3057}\u{3055}\u{3093}", text: $name)
+                    .textFieldStyle(.roundedBorder)
+
+                Text("\u{30EC}\u{30D9}\u{30EB}HUD\u{306E}\u{540D}\u{524D}\u{3092}\u{3044}\u{3064}\u{3067}\u{3082}\u{5909}\u{66F4}\u{3067}\u{304D}\u{307E}\u{3059}")
+                    .font(.system(size: 12, design: .monospaced))
+                    .foregroundStyle(.secondary)
+
+                Spacer()
+            }
+            .padding(16)
+            .navigationTitle("\u{540D}\u{524D}\u{5909}\u{66F4}")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("\u{30AD}\u{30E3}\u{30F3}\u{30BB}\u{30EB}", action: onCancel)
+                }
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("\u{4FDD}\u{5B58}", action: onSave)
+                }
+            }
+        }
+        .presentationDetents([.medium])
+    }
+}
+
 private struct MenuButtonView: View {
     let action: () -> Void
 
     var body: some View {
         Button(action: action) {
             Text("\u{30E1}\u{30CB}\u{30E5}\u{30FC}")
+                .font(.system(size: 12, weight: .bold, design: .monospaced))
+                .foregroundStyle(.white)
+                .padding(.horizontal, 12)
+                .padding(.vertical, 6)
+        }
+        .buttonStyle(.plain)
+        .background(DQPalette.panelOverlay)
+        .overlay(
+            RoundedRectangle(cornerRadius: 6)
+                .stroke(Color.white, lineWidth: 2)
+        )
+        .clipShape(RoundedRectangle(cornerRadius: 6))
+    }
+}
+
+private struct NameButtonView: View {
+    let action: () -> Void
+
+    var body: some View {
+        Button(action: action) {
+            Text("\u{540D}\u{524D}")
                 .font(.system(size: 12, weight: .bold, design: .monospaced))
                 .foregroundStyle(.white)
                 .padding(.horizontal, 12)

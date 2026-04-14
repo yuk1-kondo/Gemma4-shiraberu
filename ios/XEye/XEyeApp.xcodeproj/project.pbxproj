@@ -14,6 +14,7 @@
 		509156F9CFE14676F10137E4 /* CollectionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AB4F9BC0FCEBB663286523 /* CollectionStore.swift */; };
 		5094E37B735016C094EAEEBC /* InferenceServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45F5D0397795432E9B094C9 /* InferenceServiceFactory.swift */; };
 		885A8864A574AB2346B48D07 /* HFAPI in Frameworks */ = {isa = PBXBuildFile; productRef = C2083F9D35099375E9AB89FE /* HFAPI */; };
+		887744DE9C2498ECEC712E63 /* LiteRTBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = E577579AC1245D677A9EDB18 /* LiteRTBridge.mm */; };
 		97F82ACEB4D706B012758F79 /* MLXBridges.swift in Sources */ = {isa = PBXBuildFile; fileRef = F665F41C1550B20990C7BE04 /* MLXBridges.swift */; };
 		B915FE8DFF524358FB439825 /* GameModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF1DF04247FD1F7C5A13FBF /* GameModels.swift */; };
 		B9F88514D1ACD82B2A0E1215 /* GemmaCoreMLInferenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2C42C5D7C39741711F4DC6 /* GemmaCoreMLInferenceService.swift */; };
@@ -30,11 +31,13 @@
 		E73A3BEB23D2F38AF88CEDB9 /* ExamineOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3E7EA7987D8BB3875D86E8 /* ExamineOverlayView.swift */; };
 		EDD555F34DF26193AA24C256 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBA47A3A600B6CC7760D0B1 /* CameraViewModel.swift */; };
 		EEB61A24B9D706B98099AD6D /* AppleVisionInferenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22405C6B704C94BCC963C081 /* AppleVisionInferenceService.swift */; };
+		F1251FF34A9E1B6607FD066C /* LiteRTInferenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B5AD6C45908CFC7BC0A477 /* LiteRTInferenceService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0A2B6CCB7AA6E1B6F930AB35 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		0F2C42C5D7C39741711F4DC6 /* GemmaCoreMLInferenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemmaCoreMLInferenceService.swift; sourceTree = "<group>"; };
+		18A543D472E97E66A98CFF01 /* LiteRTBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiteRTBridge.h; sourceTree = "<group>"; };
 		1E6D1F2FE277ED551AA6CAF7 /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
 		20AB4F9BC0FCEBB663286523 /* CollectionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionStore.swift; sourceTree = "<group>"; };
 		22405C6B704C94BCC963C081 /* AppleVisionInferenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleVisionInferenceService.swift; sourceTree = "<group>"; };
@@ -50,7 +53,9 @@
 		ABBA47A3A600B6CC7760D0B1 /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
 		B45F5D0397795432E9B094C9 /* InferenceServiceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InferenceServiceFactory.swift; sourceTree = "<group>"; };
 		C55BC2F7C6E0E9C8DFA8D3B1 /* GemmaTokenDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemmaTokenDecoder.swift; sourceTree = "<group>"; };
+		D6B5AD6C45908CFC7BC0A477 /* LiteRTInferenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiteRTInferenceService.swift; sourceTree = "<group>"; };
 		E2793DF867BB9125D3814ABD /* StoryFlavorInferenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryFlavorInferenceService.swift; sourceTree = "<group>"; };
+		E577579AC1245D677A9EDB18 /* LiteRTBridge.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = LiteRTBridge.mm; sourceTree = "<group>"; };
 		EDD6EBABDD518A419E38D220 /* InferenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InferenceService.swift; sourceTree = "<group>"; };
 		F665F41C1550B20990C7BE04 /* MLXBridges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLXBridges.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -139,6 +144,9 @@
 				0F2C42C5D7C39741711F4DC6 /* GemmaCoreMLInferenceService.swift */,
 				C55BC2F7C6E0E9C8DFA8D3B1 /* GemmaTokenDecoder.swift */,
 				B45F5D0397795432E9B094C9 /* InferenceServiceFactory.swift */,
+				18A543D472E97E66A98CFF01 /* LiteRTBridge.h */,
+				E577579AC1245D677A9EDB18 /* LiteRTBridge.mm */,
+				D6B5AD6C45908CFC7BC0A477 /* LiteRTInferenceService.swift */,
 				F665F41C1550B20990C7BE04 /* MLXBridges.swift */,
 				2F8DBF90A4AA7485D49B9331 /* MLXInferenceService.swift */,
 				E2793DF867BB9125D3814ABD /* StoryFlavorInferenceService.swift */,
@@ -241,6 +249,8 @@
 				C746CCE31BAB15BE85891D75 /* GemmaTokenDecoder.swift in Sources */,
 				DFE009537FBDD44996DB6F19 /* InferenceService.swift in Sources */,
 				5094E37B735016C094EAEEBC /* InferenceServiceFactory.swift in Sources */,
+				887744DE9C2498ECEC712E63 /* LiteRTBridge.mm in Sources */,
+				F1251FF34A9E1B6607FD066C /* LiteRTInferenceService.swift in Sources */,
 				97F82ACEB4D706B012758F79 /* MLXBridges.swift in Sources */,
 				C0B0221CAF3DA3720B10FE4B /* MLXInferenceService.swift in Sources */,
 				145225BD0E47E2BCB892FE24 /* MockInferenceService.swift in Sources */,
@@ -390,6 +400,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.xeyeios;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "AppConfig/XEyeApp-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -409,6 +420,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.xeyeios;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "AppConfig/XEyeApp-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
