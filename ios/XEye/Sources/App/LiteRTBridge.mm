@@ -37,6 +37,14 @@ typedef void (*LiteRTFreeCStringFn)(char *value);
 
 @implementation LiteRTBridge
 
+- (BOOL)resolveRuntimeSymbolsFromHandle:(void *)handle {
+    self.createFn = reinterpret_cast<LiteRTCreateFn>(dlsym(handle, "litertlm_create"));
+    self.inferFn = reinterpret_cast<LiteRTInferFn>(dlsym(handle, "litertlm_infer_rgba"));
+    self.destroyFn = reinterpret_cast<LiteRTDestroyFn>(dlsym(handle, "litertlm_destroy"));
+    self.freeCStringFn = reinterpret_cast<LiteRTFreeCStringFn>(dlsym(handle, "litertlm_free_string"));
+    return self.createFn && self.inferFn && self.destroyFn && self.freeCStringFn;
+}
+
 - (NSArray<NSString *> *)runtimeCandidatePaths {
     NSMutableArray<NSString *> *candidates = [NSMutableArray array];
 
@@ -67,12 +75,7 @@ typedef void (*LiteRTFreeCStringFn)(char *value);
         }
 
         self.runtimeHandle = handle;
-        self.createFn = reinterpret_cast<LiteRTCreateFn>(dlsym(handle, "litertlm_create"));
-        self.inferFn = reinterpret_cast<LiteRTInferFn>(dlsym(handle, "litertlm_infer_rgba"));
-        self.destroyFn = reinterpret_cast<LiteRTDestroyFn>(dlsym(handle, "litertlm_destroy"));
-        self.freeCStringFn = reinterpret_cast<LiteRTFreeCStringFn>(dlsym(handle, "litertlm_free_string"));
-
-        if (!self.createFn || !self.inferFn || !self.destroyFn || !self.freeCStringFn) {
+        if (![self resolveRuntimeSymbolsFromHandle:handle]) {
             [self shutdown];
             if (error != NULL) {
                 *error = [NSError errorWithDomain:kLiteRTBridgeErrorDomain
@@ -85,10 +88,16 @@ typedef void (*LiteRTFreeCStringFn)(char *value);
         return YES;
     }
 
+    // Development fallback: use symbols linked into the app binary itself.
+    if ([self resolveRuntimeSymbolsFromHandle:RTLD_DEFAULT]) {
+        self.runtimeHandle = NULL;
+        return YES;
+    }
+
     if (error != NULL) {
         *error = [NSError errorWithDomain:kLiteRTBridgeErrorDomain
                                      code:LiteRTBridgeErrorRuntimeMissing
-                                 userInfo:@{NSLocalizedDescriptionKey: [NSString stringWithFormat:@"LiteRT bridge runtime library not found. Tried: %@", [attempts componentsJoinedByString:@" | "]]}];
+                                 userInfo:@{NSLocalizedDescriptionKey: [NSString stringWithFormat:@"LiteRT bridge runtime library not found and no in-app ABI symbols were available. Tried: %@", [attempts componentsJoinedByString:@" | "]]}];
     }
     return NO;
 }

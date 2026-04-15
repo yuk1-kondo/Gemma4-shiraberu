@@ -24,6 +24,13 @@ At initialization, bridge checks in this order:
 3. `Frameworks/libLiteRTLMBridge.dylib` in app bundle
 4. `libLiteRTLMBridge.dylib` in app bundle root
 
+If no external library is found, the bridge also checks for the same C ABI
+symbols linked into the app binary itself. This enables local development with
+an in-app stub runtime.
+
+Current implementation includes a development stub at
+`Sources/App/LiteRTStubRuntime.mm`.
+
 ## Required C ABI symbols
 
 Your LiteRT runtime library must export these symbols:
@@ -57,3 +64,36 @@ Conventions:
 2. Add the library to app bundle copy phase.
 3. Place `gemma4.litertlm` in one of the searched locations.
 4. Run app and verify backend label switches to `LiteRT-LM (iOS)`.
+
+Notes:
+
+- External runtime library always takes precedence over the in-app stub.
+- Keep the stub only for development verification. Real quality/performance
+  validation must use actual LiteRT runtime.
+
+## Quick local verification (without external runtime)
+
+1. Place a dummy model file named `gemma4.litertlm` into app Documents or app bundle Models.
+2. Launch app on device.
+3. Tap "調べる" and check inference label.
+
+Expected behavior:
+
+- Backend label becomes `LiteRT-LM (iOS)`.
+- Response includes `LiteRT開発スタブ` text from stub runtime.
+- If model file is missing, it gracefully falls back to AppleVision/Mock.
+
+### Model upload helper
+
+Use the helper script to copy a model file into app Documents on a connected device:
+
+```bash
+cd ios/XEye
+./scripts/push_litert_model_to_device.sh /path/to/gemma4.litertlm
+```
+
+Optional env vars:
+
+- `DEVICE_ID=<udid>`: choose a specific device
+- `APP_BUNDLE_ID=<bundle-id>`: default is `com.example.xeyeios`
+- `DESTINATION_PATH=<path-in-app-container>`: default is `Documents/gemma4.litertlm`
