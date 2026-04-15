@@ -58,6 +58,20 @@ typedef void (*LiteRTFreeCStringFn)(char *value);
     [candidates addObject:[bundlePath stringByAppendingPathComponent:@"Frameworks/libLiteRTLMBridge.dylib"]];
     [candidates addObject:[bundlePath stringByAppendingPathComponent:@"libLiteRTLMBridge.dylib"]];
 
+    NSArray<NSURL *> *documents = [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
+    if (documents.count > 0) {
+        NSString *documentsPath = documents.firstObject.path;
+        [candidates addObject:[documentsPath stringByAppendingPathComponent:@"libLiteRTLMBridge.dylib"]];
+        [candidates addObject:[documentsPath stringByAppendingPathComponent:@"LiteRTLMBridge.framework/LiteRTLMBridge"]];
+    }
+
+    NSArray<NSURL *> *appSupport = [[NSFileManager defaultManager] URLsForDirectory:NSApplicationSupportDirectory inDomains:NSUserDomainMask];
+    if (appSupport.count > 0) {
+        NSString *appSupportPath = appSupport.firstObject.path;
+        [candidates addObject:[appSupportPath stringByAppendingPathComponent:@"libLiteRTLMBridge.dylib"]];
+        [candidates addObject:[appSupportPath stringByAppendingPathComponent:@"LiteRTLMBridge.framework/LiteRTLMBridge"]];
+    }
+
     return candidates;
 }
 

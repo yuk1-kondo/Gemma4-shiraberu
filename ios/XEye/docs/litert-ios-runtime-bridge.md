@@ -23,6 +23,10 @@ At initialization, bridge checks in this order:
 2. `Frameworks/LiteRTLMBridge.framework/LiteRTLMBridge` in app bundle
 3. `Frameworks/libLiteRTLMBridge.dylib` in app bundle
 4. `libLiteRTLMBridge.dylib` in app bundle root
+5. `Documents/libLiteRTLMBridge.dylib` in app data container
+6. `Documents/LiteRTLMBridge.framework/LiteRTLMBridge` in app data container
+7. `Application Support/libLiteRTLMBridge.dylib` in app data container
+8. `Application Support/LiteRTLMBridge.framework/LiteRTLMBridge` in app data container
 
 If no external library is found, the bridge also checks for the same C ABI
 symbols linked into the app binary itself. This enables local development with
@@ -97,3 +101,18 @@ Optional env vars:
 - `DEVICE_ID=<udid>`: choose a specific device
 - `APP_BUNDLE_ID=<bundle-id>`: default is `com.example.xeyeios`
 - `DESTINATION_PATH=<path-in-app-container>`: default is `Documents/gemma4.litertlm`
+
+### Runtime upload helper
+
+Use this when starting real LiteRT runtime integration without re-signing app bundle:
+
+```bash
+cd ios/XEye
+./scripts/push_litert_runtime_to_device.sh /path/to/libLiteRTLMBridge.dylib
+```
+
+Optional env vars:
+
+- `DEVICE_ID=<udid>`: choose a specific device
+- `APP_BUNDLE_ID=<bundle-id>`: default is `com.example.xeyeios`
+- `DESTINATION_PATH=<path-in-app-container>`: default is `Documents/libLiteRTLMBridge.dylib`
